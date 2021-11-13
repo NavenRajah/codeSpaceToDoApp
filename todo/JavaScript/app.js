@@ -35,6 +35,7 @@ document.getElementById('item').addEventListener('keydown', function(e)
     }
 });
 
+//add task
 function addItem(value) 
 {
     if(datePicker.value=="")
@@ -55,7 +56,7 @@ function addItem(value)
         
     dataObjectUpdated();
 }
-
+//create toDo list
 function renderTodoList() 
 {
     console.log(data);
@@ -80,6 +81,7 @@ function renderTodoList()
     }
 }
 
+//sort task
 function SortDataByDate()
 {
     data.todo.sort(custom_sort);
@@ -95,6 +97,7 @@ function dataObjectUpdated()
     localStorage.setItem('todoList', JSON.stringify(data));
 }
 
+//remove item
 function removeItem() 
 {
     var item = this.parentNode.parentNode;
@@ -115,7 +118,7 @@ function removeItem()
     parent.removeChild(item);
 }
 
-
+//complete item
 function CompleteItem(text, date, item, completed) 
 {
     var parent = item.parentNode;
@@ -153,7 +156,7 @@ function CompleteItem(text, date, item, completed)
     renderTodoList();
 }
 
-
+//add item
 function addItemToDOM(text, date, completed) 
 {
     var list = (completed) ? document.getElementById('completed') : document.getElementById('todo');
@@ -184,6 +187,7 @@ function addItemToDOM(text, date, completed)
     edit.classList.add('edit');
     edit.innerHTML = editGFX;
 
+//edit task
     edit.onclick = function() 
     {
         var editText;
